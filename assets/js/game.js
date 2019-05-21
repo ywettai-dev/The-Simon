@@ -4,6 +4,11 @@ var gamePattern = [];
 
 var userClickedPattern = [];
 
+/* Predefined started as false so that 
+the nextSequence() will not be called again 
+even when another key has pressed
+i.e when started is true*/
+
 var started = false;
 
 var level = 0;
@@ -31,6 +36,7 @@ $(".btn").click(function () {
 
     animatedPress(userChosenColor);
 
+    //Passing the last index of the user clicked pattern
     checkAnswer(userClickedPattern.length - 1);
 
 })
@@ -74,14 +80,18 @@ function checkAnswer(currentLevel) {
 
 }
 
+
+//Create Random color sequence for game pattern
 function nextSequence() {
 
+    //Make user ready for next level
     userClickedPattern = [];
 
     level++;
 
     $("#level-title").text("Level " + level);
 
+    //Generate random color sequence
     var randomNumber = Math.floor(Math.random() * 4);
 
     var randomChosenColor = buttonColors[randomNumber];
@@ -90,21 +100,24 @@ function nextSequence() {
 
     var keyButton = "#" + randomChosenColor;
 
+    //Add animation to alert random color box
     $(keyButton).delay(100).fadeOut().fadeIn('slow');
 
+    //Play random sound corresponds to the predefined color
     playSound(randomChosenColor);
 
 }
 
 function playSound(name) {
 
-    //Make sound
+    //Make sound with Audio('url') and .play() method
 
     var makeSound = new Audio('./sounds/' + name + '.mp3');
 
     makeSound.play();
 }
 
+//Add animated to the pressed color box with the predefiend css class 
 function animatedPress(currentColor) {
 
     $("." + currentColor).addClass("pressed");
@@ -114,7 +127,8 @@ function animatedPress(currentColor) {
     }, 100)
 }
 
-function startOver(){
+//Reset level, gamepattern and started value
+function startOver() {
 
     level = 0;
 
