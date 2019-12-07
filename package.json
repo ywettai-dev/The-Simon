@@ -1,0 +1,22 @@
+{
+  "name": "the-simon",
+  "version": "1.0.0",
+  "description": "The simon game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ywettai-dev/The-Simon.git"
+  },
+  "author": "taitai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ywettai-dev/The-Simon/issues"
+  },
+  "homepage": "https://github.com/ywettai-dev/The-Simon#readme",
+  "devDependencies": {
+    "eslint": "^6.7.2"
+  }
+}
